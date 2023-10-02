@@ -1,3 +1,5 @@
+Forked from: https://bitbucket.org/stagescycling/fit_tool/src/main/
+
 A library for reading and writing Garmin FIT files.
 
 ## Background
