@@ -136,8 +136,9 @@ class FitFile {
           initial: crc);
 
       if (recordSize != definedSize) {
-        logger.w(
-            'Record $recordIndex, ${record.message}: size ($recordSize) != defined size ($definedSize). Some fields were not read correctly.');
+        // TODO (tianyil): need to figure out why we're hittin this
+        // logger.d(
+        //     'Record $recordIndex, ${record.message}: size ($recordSize) != defined size ($definedSize). Some fields were not read correctly.');
       }
 
       if (checkRecords) {

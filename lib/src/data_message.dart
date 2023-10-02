@@ -119,8 +119,9 @@ abstract class DataMessage extends Message {
       final field = getField(fieldDefinition.id);
 
       if (field == null) {
-        logger.w(
-            'Field id: ${fieldDefinition.id} is not defined for message $name:$globalId.');
+        // TODO (tianyil): need to figure out why we're hitting this
+        // logger.d(
+        //     'Field id: ${fieldDefinition.id} is not defined for message $name:$globalId.');
         start += fieldDefinition.size;
         continue;
       }

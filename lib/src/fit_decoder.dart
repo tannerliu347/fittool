@@ -135,8 +135,9 @@ class MessageConversionSink extends ByteConversionSink {
           final recordSize1 = record.toBytes().length;
 
           if (recordSize != definedSize || recordSize != recordSize1) {
-            logger.w(
-                'record $recordIndex, ${record.message}: size ($recordSize) != defined size ($definedSize). Some fields were not read correctly.');
+            // TODO (tianyil): need to figure out why we're hitting this
+            // logger.d(
+            //     'record $recordIndex, ${record.message}: size ($recordSize) != defined size ($definedSize). Some fields were not read correctly.');
           }
 
           final actualBytes = Uint8List.sublistView(bytes, 0, definedSize);
