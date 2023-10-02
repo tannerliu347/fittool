@@ -146,11 +146,18 @@ class Record {
   static Record fromBytes(
       Map<int, DefinitionMessage> definitionMessageMap, Uint8List bytes,
       {Map<int, Map<int, DeveloperField>> developerFieldsById = const {}}) {
+    final stopwatch = Stopwatch()..start();
     final header = RecordHeader.fromBytes(bytes);
+    stopwatch.stop();
+    print('headerFromBytes takes: ${stopwatch.elapsedMicroseconds} us');
 
+    final stopwatch2 = Stopwatch()..start();
     final messageBytes = bytes.sublist(RecordHeader.headerSize);
+    stopwatch2.stop();
+    print('sublist takes: ${stopwatch2.elapsedMicroseconds} us');
     final Message message;
     if (header.isDefinition) {
+      print('isDefinition');
       message = DefinitionMessage.fromBytes(messageBytes,
           hasDeveloperFields: header.hasDeveloperFields);
     } else {
@@ -161,8 +168,11 @@ class Record {
       }
       final developerFields =
           definitionMessage.getDeveloperFields(developerFieldsById);
+      final stopwatch = Stopwatch()..start();
       message = DataMessage.fromBytes(
           definitionMessage, developerFields, messageBytes);
+      stopwatch.stop();
+      print('messageFromBytes takes: ${stopwatch.elapsedMicroseconds} us');
     }
 
     return Record(header, message);

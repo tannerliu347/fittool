@@ -96,11 +96,16 @@ class FitFile {
     var recordIndex = 0;
     var recordBytesRemainingCount = header.recordsSize;
     while (recordBytesRemainingCount > 0) {
+      print('===================== new iteration ========================');
       // print('Record $recordIndex');
       final remainingBytes = Uint8List.sublistView(bytes, byteOffset);
 
+      final stopwatch = Stopwatch()..start();
       final record = Record.fromBytes(definitionMessageMap, remainingBytes,
           developerFieldsById: developerFieldsById);
+
+      stopwatch.stop();
+      print('sw half takes ${stopwatch.elapsedMicroseconds} us');
 
       if (record.isDefinition) {
         definitionMessageMap[record.localId] =
@@ -156,6 +161,8 @@ class FitFile {
       byteOffset += definedSize;
 
       recordIndex++;
+
+      print('================================================================');
     }
 
     final byteData = ByteData.sublistView(bytes, byteOffset, byteOffset + 2);
