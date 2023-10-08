@@ -198,7 +198,8 @@ abstract class DataMessage extends Message {
       for (var fieldDefinition in definitionMessage!.fieldDefinitions) {
         final field = getField(fieldDefinition.id);
         if (field == null) {
-          logger.w('Field for id: ${fieldDefinition.id} not found.');
+          // TODO (tianyil): need to figure out why we're hitting this
+          // logger.w('Field for id: ${fieldDefinition.id} not found.');
           continue;
         }
 
@@ -251,7 +252,8 @@ abstract class DataMessage extends Message {
       for (var fieldDefinition in definitionMessage!.fieldDefinitions) {
         final field = getField(fieldDefinition.id);
         if (field == null) {
-          logger.w('Field for id: ${fieldDefinition.id} not found.');
+          // TODO (tianyil): need to figure out why we're hitting this
+          // logger.w('Field for id: ${fieldDefinition.id} not found.');
           continue;
         }
 

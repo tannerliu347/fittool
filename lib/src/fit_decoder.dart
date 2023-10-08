@@ -148,9 +148,10 @@ class MessageConversionSink extends ByteConversionSink {
             final recordBytes = record.toBytes();
 
             if (!listEqual(actualBytes, recordBytes)) {
-              logger.i('- $recordIndex -');
-              logger.i('actual: $actualBytes');
-              logger.i('record: $recordBytes');
+            // TODO (tianyil): need to figure out why we're hitting this
+              // logger.i('- $recordIndex -');
+              // logger.i('actual: $actualBytes');
+              // logger.i('record: $recordBytes');
             }
           }
 
