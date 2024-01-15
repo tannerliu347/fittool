@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:csv/csv.dart';
 import 'package:fit_tool/fit_tool.dart';
+import 'package:fit_tool/src/utils/logger.dart';
 
 void main() async {
   final stopwatch = Stopwatch()..start();
@@ -13,7 +14,8 @@ void main() async {
       .forEach((message) {
     message as RecordMessage;
     if (message.positionLat != null && message.positionLong != null) {
-      // _logger.i('position: ${message.positionLat}, ${message.positionLong}');
+      // fitToolLogger
+      //     .i('position: ${message.positionLat}, ${message.positionLong}');
     }
   });
   stopwatch.stop();

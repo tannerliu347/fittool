@@ -120,7 +120,7 @@ abstract class DataMessage extends Message {
 
       if (field == null) {
         // TODO (tianyil): need to figure out why we're hitting this
-        // logger.d(
+        // fitToolLogger.d(
         //     'Field id: ${fieldDefinition.id} is not defined for message $name:$globalId.');
         start += fieldDefinition.size;
         continue;
@@ -199,7 +199,7 @@ abstract class DataMessage extends Message {
         final field = getField(fieldDefinition.id);
         if (field == null) {
           // TODO (tianyil): need to figure out why we're hitting this
-          // logger.w('Field for id: ${fieldDefinition.id} not found.');
+          // fitToolLogger.w('Field for id: ${fieldDefinition.id} not found.');
           continue;
         }
 
@@ -253,7 +253,7 @@ abstract class DataMessage extends Message {
         final field = getField(fieldDefinition.id);
         if (field == null) {
           // TODO (tianyil): need to figure out why we're hitting this
-          // logger.w('Field for id: ${fieldDefinition.id} not found.');
+          // fitToolLogger.w('Field for id: ${fieldDefinition.id} not found.');
           continue;
         }
 

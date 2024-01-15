@@ -113,7 +113,7 @@ class DefinitionMessage extends Message {
       final field = message.getField(fieldDefinition.id);
 
       if (field == null) {
-        logger.w(
+        fitToolLogger.w(
             'Field id:${fieldDefinition.id} could not be found in ${message.name}.');
         continue;
       }
@@ -126,7 +126,7 @@ class DefinitionMessage extends Message {
       final field = getDeveloperFieldDefinition(fieldDefinition.id);
 
       if (field == null) {
-        logger.w(
+        fitToolLogger.w(
             'Field id:${fieldDefinition.id} could not be found in ${message.name}.');
         continue;
       }

@@ -43,7 +43,7 @@ class FitFile {
       if (checkCrc) {
         throw Exception(message);
       } else {
-        logger.w(message);
+        fitToolLogger.w(message);
       }
     }
 
@@ -137,7 +137,7 @@ class FitFile {
 
       if (recordSize != definedSize) {
         // TODO (tianyil): need to figure out why we're hittin this
-        // logger.d(
+        // fitToolLogger.d(
         //     'Record $recordIndex, ${record.message}: size ($recordSize) != defined size ($definedSize). Some fields were not read correctly.');
       }
 
@@ -147,7 +147,7 @@ class FitFile {
         final recordBytes = record.toBytes();
 
         if (!listEqual(actualBytes, recordBytes)) {
-          logger.w(
+          fitToolLogger.w(
               '- $recordIndex -\nactual: $actualBytes\nrecord: $recordBytes');
         }
       }
@@ -167,7 +167,7 @@ class FitFile {
       if (checkCrc) {
         throw Exception(message);
       } else {
-        logger.w(message);
+        fitToolLogger.w(message);
       }
     }
 

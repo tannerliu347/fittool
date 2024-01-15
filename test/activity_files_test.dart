@@ -17,7 +17,7 @@ void main() {
       final file = File('./test/data/activity_deprecated_profile.fit');
       final bytes = await file.readAsBytes();
       final fitFile = FitFile.fromBytes(bytes);
-      logger.d('Profile version: ${fitFile.header.profileVersion}');
+      fitToolLogger.d('Profile version: ${fitFile.header.profileVersion}');
       fitFile.toRows();
       // for (var row in fitFile.toRows()) {
       //   print(row);
@@ -28,10 +28,10 @@ void main() {
       final file = File('./test/data/activity_multiple_developer_index.fit');
       final bytes = await file.readAsBytes();
       final fitFile = FitFile.fromBytes(bytes);
-      logger.d('Profile version: ${fitFile.header.profileVersion}');
+      fitToolLogger.d('Profile version: ${fitFile.header.profileVersion}');
       fitFile.toRows();
       for (var row in fitFile.toRows()) {
-        logger.d(row);
+        fitToolLogger.d(row);
       }
     });
   });

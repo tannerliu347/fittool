@@ -136,7 +136,7 @@ class MessageConversionSink extends ByteConversionSink {
 
           if (recordSize != definedSize || recordSize != recordSize1) {
             // TODO (tianyil): need to figure out why we're hitting this
-            // logger.d(
+            // fitToolLogger.d(
             //     'record $recordIndex, ${record.message}: size ($recordSize) != defined size ($definedSize). Some fields were not read correctly.');
           }
 
@@ -149,9 +149,9 @@ class MessageConversionSink extends ByteConversionSink {
 
             if (!listEqual(actualBytes, recordBytes)) {
             // TODO (tianyil): need to figure out why we're hitting this
-              // logger.i('- $recordIndex -');
-              // logger.i('actual: $actualBytes');
-              // logger.i('record: $recordBytes');
+              // fitToolLogger.i('- $recordIndex -');
+              // fitToolLogger.i('actual: $actualBytes');
+              // fitToolLogger.i('record: $recordBytes');
             }
           }
 
@@ -185,7 +185,7 @@ class MessageConversionSink extends ByteConversionSink {
           if (checkCrc) {
             throw Exception(message);
           } else {
-            logger.w(message);
+            fitToolLogger.w(message);
           }
         }
       } else {
